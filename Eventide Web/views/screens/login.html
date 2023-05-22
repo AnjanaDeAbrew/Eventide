@@ -1,0 +1,116 @@
+<html>
+
+<head>
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+  <div id="login-box">
+    <div class="left">
+      <h1 id='status'><img src="images/logo.png" width="20"> &nbsp; Admin login</h1>
+      <input type="text" id="email" name="email" placeholder="E-mail" />
+      <input type="password" id="password" name="password" placeholder="Password" />
+
+      <button type="button" id="submitData" name="submitData">Login</button>
+
+
+      <br>
+      <a href="signup" class="aclass">Are you a new user?</a>
+    </div>
+
+    <div class="right">
+
+
+      <img src="images/login.jpg" width="260">
+    </div>
+
+  </div>
+</body>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+  import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyC7OsGMQvlKg-e5WoHqmsNg_7aL2qVfVP4",
+    authDomain: "eventide-admin.firebaseapp.com",
+    databaseURL: "https://eventide-admin-default-rtdb.firebaseio.com",
+    projectId: "eventide-admin",
+    storageBucket: "eventide-admin.appspot.com",
+    messagingSenderId: "711750737778",
+    appId: "1:711750737778:web:00e92c13b1ecb79aeac7eb",
+    measurementId: "G-DBJBB7PDZW"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+  const auth = getAuth();
+
+  
+
+  submitData.addEventListener('click', (e) => {
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+
+        var lgDate = new Date();
+        update(ref(database, 'AdminUsers/' + user.uid), {
+          last_login: lgDate,
+        })
+          .then(() => {
+
+            window.location.href = "home";
+
+          })
+          .catch((error) => {
+
+            alert(error);
+          });
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        alert(errorMessage);
+      });
+
+  });
+
+  const user = auth.currentUser;
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+ 
+      const uid = user.uid;
+     
+    } else {
+   
+    }
+  });
+
+  logout.addEventListener('click', (e) => {
+
+    signOut(auth).then(() => {
+ 
+      alert('user loged out');
+    }).catch((error) => {
+      // An error happened.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+
+      alert(errorMessage);
+    });
+
+  });
+
+</script>
+
+</html>

@@ -1,0 +1,94 @@
+<html>
+
+<head>
+  <title>Firebase Authentication</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+  <div id="login-box">
+    <div class="left">
+      <h1 id='status'><img src="images/logo.png" width="20"> &nbsp;Admin signup</h1>
+      <input type="text" id="name" name="name" placeholder="Name" />
+      <input type="text" id="email" name="email" placeholder="E-mail" />
+      <input type="password" id="password" name="password" placeholder="Password" />
+
+      <input type="submit" id='sighUp' name="sighUp" value="Signup" />
+
+    </div>
+
+    <div class="right">
+
+
+      <img src="images/logo.png">
+    </div>
+
+  </div>
+</body>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+  import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signOut
+  } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+  import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyC7OsGMQvlKg-e5WoHqmsNg_7aL2qVfVP4",
+    authDomain: "eventide-admin.firebaseapp.com",
+    databaseURL: "https://eventide-admin-default-rtdb.firebaseio.com",
+    projectId: "eventide-admin",
+    storageBucket: "eventide-admin.appspot.com",
+    messagingSenderId: "711750737778",
+    appId: "1:711750737778:web:00e92c13b1ecb79aeac7eb",
+    measurementId: "G-DBJBB7PDZW"
+  };
+
+
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+  const auth = getAuth();
+
+  sighUp.addEventListener('click', (e) => {
+
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    var username = document.getElementById('name').value;
+
+    createUserWithEmailAndPassword(auth, email, password, username)
+      .then((userCredential) => {
+
+        const user = userCredential.user;
+
+        set(ref(database, 'AdminUsers/' + user.uid), {
+          UserName: username,
+          email: email,
+          password: password
+        })
+          .then(() => {
+
+            alert('Admin Account Created Successfully');
+            window.location.href = "/";
+
+          })
+          .catch((error) => {
+
+            alert(error);
+          });
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+        alert(errorMessage);
+      });
+  });
+
+</script>
+
+</html>

@@ -1,0 +1,169 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/home.css" />
+</head>
+
+<body>
+   <input type="checkbox" id="nav-toggle">
+<div class="sidebar">
+
+    <div class="sidebar-brand">
+        <span><img src="images/logo.png" class="img" width="30" height="40"></span><span>Eventide</span>
+    </div>
+
+    <div class="sidebar-menu">
+
+        <ul>
+             
+            <li><a href="userManage" ><span class="las la-users"></span>
+                <span>Customer Manage</span></a>
+            </li>
+            <li><a href="organizerManage" ><span class="las la-calendar-check"></span>
+                <span>Organizer Manage</span></a>
+            </li>
+            <li><a href="bookingManage"><span class="las la-calendar"></span>
+                <span>Booking Manage</span></a>
+            </li>
+            
+            
+             
+        </ul>
+    </div>
+</div>
+
+    <div class="main-content">
+        <header>
+           <h1>
+            <label for="nav-toggle">
+<span class="las la-bars"></span>
+            </label>
+            Dashboard
+           </h1>
+           <div class="user-wrapper">
+             
+         
+            
+    </div>
+        </header>
+
+        <main>
+            <div class="card">
+                <div class="card-single">
+                    <div> <h1 id="users"></h1> 
+                        <span>Total Customers</span>
+                       
+                    </div>
+                    <div>
+                        <span class="las la-users"></span>
+                    </div>
+                </div>
+                <div class="card-single">
+                    <div><h1 id="organizers"></h1> 
+                        <span>Total Organizers</span>
+                        
+                    </div>
+                    <div>
+                        <span class="las la-bullhorn"></span>
+                    </div>
+                  
+                </div>
+                <div class="card-single">
+                    <div><h1 id="bookings">1</h1>
+                        <span>Total Bookings</span>
+                      
+                    </div>
+                    <div>
+                        <span class="las la-calendar-check"></span>
+                    </div>
+                  
+                </div>
+            </div>
+
+           <div class="recent-grid">
+
+             
+             
+           </div>
+        </main>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+                <script id="MainScript">
+                   
+                    const firebaseConfig = {
+                        apiKey: "AIzaSyC7tcg-kWKr_tSUZGl6Mz42ava8P003lMQ",
+                        authDomain: "eventide-app.firebaseapp.com",
+                        projectId: "eventide-app",
+                        storageBucket: "eventide-app.appspot.com",
+                        messagingSenderId: "906443193887",
+                        appId: "1:906443193887:web:7c3e0b59b9032d481ddf2a",
+                        measurementId: "G-2ZVBX3YWJE"
+                    };
+
+                    firebase.initializeApp(firebaseConfig);
+    let db = firebase.firestore();
+
+    function GetAllDataRealtime() {
+      var length;
+      var length1;
+      var length2;
+      db.collection("users").onSnapshot((querySnapshot) => {
+        var users = [];
+        querySnapshot.forEach(doc => {
+          users.push(doc.data());
+          length = users.length;
+        });
+
+        document.getElementById("users").innerHTML = length;
+    
+        
+
+        console.log(length);
+
+      });
+
+      db.collection("organizers").onSnapshot((querySnapshot) => {
+        var organizers = [];
+        querySnapshot.forEach(doc => {
+          organizers.push(doc.data());
+          length1 = organizers.length;
+        });
+
+        document.getElementById("organizers").innerHTML = length1;
+
+        console.log(length1);
+
+      });
+
+      db.collection("bookings").onSnapshot((querySnapshot) => {
+        var bookings = [];
+        querySnapshot.forEach(doc => {
+            bookings.push(doc.data());
+          length2 = bookings.length;
+        });
+
+        document.getElementById("bookings").innerHTML = length2;
+
+        console.log(length2);
+
+      });
+
+    }
+
+    window.onload = GetAllDataRealtime;
+
+                  
+                    
+                </script>
+
+</body>
+
+</html>
