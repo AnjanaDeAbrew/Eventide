@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "906443193887",
+    "project_id": "eventide-app",
+    "storage_bucket": "eventide-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906443193887:android:78c6128138dacf7a1ddf2a",
+        "android_client_info": {
+          "package_name": "com.anjana.eventide_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "906443193887-s46p6k0l5gig8ehsaruu65k2gmd7eh23.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdIBylodtcbJaX0rBS8kLine-H7VaV7DI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "906443193887-s46p6k0l5gig8ehsaruu65k2gmd7eh23.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
