@@ -8,3 +8,7 @@ with event planners using chat feature and also there is an voice assistant call
 ## Eventide Organizer Application
 
 The organizers application is for organizers. Using this application event planners can handle all reservation and view all feedbacks wich received. Also planners can directly chat with customers using chat feature.
+
+## Eventide Web Application
+
+USing the web admin pannel admin can view number of users, planners and bookings. Also admin would be able to manage users, planners and bookings.
