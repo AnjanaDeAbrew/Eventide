@@ -16,7 +16,7 @@ USing the web admin pannel admin can view number of users, planners and bookings
 
 <table border="0">
   <tr>
-    <td><img src="https://github.com/AnjanaDeAbrew/Eventide/assets/102325586/6c493c08-a29c-4e8f-b1b6-143dd710df20" height="450" width="270" ></td>
+    <td><img src="https://github.com/AnjanaDeAbrew/Eventide/assets/102325586/6c493c08-a29c-4e8f-b1b6-143dd710df20" height="400" width="270" ></td>
     <td><img src="https://github.com/AnjanaDeAbrew/Eventide/assets/102325586/eba1594b-5a77-43ba-a77c-0d411cb8afcf" height="450" width="270" ></td>
     <td><img src="https://github.com/AnjanaDeAbrew/Eventide/assets/102325586/93b03fb4-7621-440c-9f31-c18a422c0510" height="450" width="270" ></td>
      <td><img src="https://github.com/AnjanaDeAbrew/Eventide/assets/102325586/cd40fe70-0684-4697-9b28-17f72b7fe831" height="450" width="270" ></td>
