@@ -13,7 +13,7 @@ with event planners using chat feature and also there is an voice assistant call
   </tr>
     <tr>
     <td><img src="https://github.com/AnjanaDeAbrew/Eventide/assets/102325586/7c311755-cef5-48f7-a461-2d4a989eb97c" height="570" width="270" ></td>
-    <td><img src="https://github.com/AnjanaDeAbrew/Eventide/assets/102325586/89e4a71e-c96e-44cc-90b4-362ded769e50" height="570" width="270" ></td>
+    <td><img src="https://github.com/AnjanaDeAbrew/Eventide/assets/102325586/89e4a71e-c96e-44cc-90b4-362ded769e50" height="570" width="340" ></td>
      <td><img src="https://github.com/AnjanaDeAbrew/Eventide/assets/102325586/01332711-372a-4813-8259-1cacce7118de" height="570" width="270" ></td>
   </tr>
  </table><br>
