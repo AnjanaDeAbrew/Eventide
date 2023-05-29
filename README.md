@@ -11,7 +11,7 @@ The organizers application is for organizers. Using this application event plann
 
 ## Eventide Web Application
 
-USing the web admin pannel admin can view number of users, planners and bookings. Also admin would be able to manage users, planners and bookings.
+Using the web admin pannel admin can view number of users, planners and bookings. Also admin would be able to manage users, planners and bookings.
 
 
 <table border="0">
